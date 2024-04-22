@@ -1,0 +1,15 @@
+torch
+numpy
+tqdm
+pandas
+urllib3
+lightning
+scikit-learn
+plotly
+nbconvert
+wandb
+Pillow
+opencv-python
+torchvision
+transformers
+sentencepiece

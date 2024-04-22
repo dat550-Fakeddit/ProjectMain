@@ -1,0 +1,32 @@
+# Ignore macOS .DS_Store files
+.DS_Store
+
+# Ignore virtual environment
+venv/
+
+
+CSV_FILES/
+3_way_dataset/
+6_way_dataset60k/
+data60k/
+Archive/
+data/
+lightning_logs/
+old_trained_models/
+wandb/
+
+
+LOGS_TESTING/
+LOGS_TRAINING/
+
+old_trained_models/
+trained_models/
+trained_models_2_way/
+trained_models_6_way/
+Zero_SHOT/
+
+
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
