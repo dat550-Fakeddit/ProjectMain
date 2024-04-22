@@ -1,12 +1,39 @@
-# slurm_train
+# slurm_train Old
 
-* sbatch conda_setup.sh
-* sbatch update_pip.sh
+- sbatch conda_setup.sh
+- sbatch update_pip.sh
 
+- sbatch Multimodal_TRAIN.sh
+- sbatch Multimodal_TEST.sh
 
-* sbatch Multimodal_TRAIN.sh
-* sbatch Multimodal_TEST.sh
+- sbatch Train_CLIP.sh
+- sbatch Test_CLIP.sh
 
+# Multimodal Fakeddit project
 
-* sbatch Train_CLIP.sh
-* sbatch Test_CLIP.sh
+Names
+References
+General information
+
+## Getting started
+
+Requirements
+File structure
+
+## Dataset
+
+### Download dataset
+
+Explain
+
+### Generate dataset
+
+Explain
+
+## Train model
+
+Explain
+
+### Config
+
+### Parameters
