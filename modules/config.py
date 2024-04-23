@@ -115,11 +115,11 @@ def get_model_name(text_model, vision_model, classes, combine_method):
 
 
 # Configurations for training
-DATASET = "300_2_way_label"
-CLASSES = 2
-BATCH_SIZE = 50
-EPOCHS = 30 # 30
-VISION_MODEL = efficientnet_v2_s
+DATASET = "1000_6_way_label"
+CLASSES = 6
+BATCH_SIZE = 20
+EPOCHS = 5 # 30
+VISION_MODEL = ViT_model
 TEXT_ENCODER_MODEL = bert_base_uncased_model
 TOKENIZER = bert_base_uncased_tokenizer
 
@@ -144,7 +144,7 @@ COMBINE_INFO = {
 WANDB_PROJECT = "TESTING"#"dat550_2_Way_Vision_Model" # dat550_Vision_Model
 WANDB_MODEL_NAME = f"{get_model_name(TEXT_ENCODER_MODEL, VISION_MODEL, CLASSES, COMBINE_INFO['method'])}"
 MODEL_NAME = f"trained_models/{WANDB_MODEL_NAME}.pt"
-WANDB_API_KEY = "57bc17c6e9359ec344d6b67283f22f6c6dcc09eb"
+WANDB_API_KEY = "API_KEY"
 
 # Configurations for testing
 #model_name = get_model_name(TEXT_ENCODER_MODEL, VISION_MODEL, CLASSES)

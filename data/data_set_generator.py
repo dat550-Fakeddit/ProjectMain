@@ -10,30 +10,30 @@ import PIL
 from PIL import Image
 
 # SETUP:
-count = 60000 # The number of entries in the new train set.
+count = 1000 # The number of entries in the new train set.
 
 # The category to be used for the new train set.
 # Options: "2_way_label", "3_way_label", "6_way_label"
-category = "3_way_label" 
+category = "6_way_label" 
 
 # The number of entries in the new train set for each category.
 # The length of the list should be equal to the number of labels for the category.
-counters = [0, 0, 0]
+counters = [0, 0, 0, 0, 0, 0]
 
 PIL.Image.MAX_IMAGE_PIXELS = 1809600000
 
 current_path = os.path.dirname(os.path.realpath(__file__))
-main_image_path = os.path.join("E:\\", "public_images/public_image_set")
+main_image_path = os.path.join(current_path, "full_set", "public_image_set")
 
 
 
 train_df = pd.read_csv(
-    os.path.join(current_path, "..", "large_set", "multimodal_train.tsv"), sep="\t"
+    os.path.join(current_path, "full_set", "multimodal_train.tsv"), sep="\t"
 )
 
 print(train_df.head())
 
-new_path = os.path.join(current_path, str(count), category)
+new_path = os.path.join(current_path, str(count)+ "_" + category)
 train_image_path = os.path.join(current_path, "images")
 
 if not os.path.exists(os.path.join(current_path, str(count))):
@@ -78,7 +78,7 @@ test_count = count * 0.2
 counters = [0 for counter in counters]
 
 test_df = pd.read_csv(
-    os.path.join(current_path, "..", "large_set", "multimodal_test_public.tsv"),
+    os.path.join(current_path, "full_set", "multimodal_test_public.tsv"),
     sep="\t",
 )
 
@@ -119,7 +119,7 @@ validate_count = count * 0.2
 counters = [0 for counter in counters]
 
 validate_df = pd.read_csv(
-    os.path.join(current_path, "..", "large_set", "multimodal_validate.tsv"),
+    os.path.join(current_path, "full_set", "multimodal_validate.tsv"),
     sep="\t",
 )
 

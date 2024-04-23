@@ -18,6 +18,7 @@ from modules.config import (
     BATCH_SIZE,
     EPOCHS,
     CLASSES,
+    DATASET
 )
 
 MODEL_NAME = "6-way-CLIP-freeze-normalized"
@@ -31,7 +32,7 @@ torch.set_float32_matmul_precision('medium')
 PIL.Image.MAX_IMAGE_PIXELS = 1809600000
 
 # load the dataframe
-data_dir = "6_way_dataset60k"
+data_dir = os.path.join("data", DATASET)
 train_dir = os.path.join(data_dir, "train_images")            # where the images are stored to be trained on
 batch_dir = os.path.join(data_dir, "batch")                 # optional to train on a subset of images
 test_dir = os.path.join(data_dir, "test_images")              # validate training against test folder to find accuracy
@@ -179,8 +180,8 @@ multimodal_model.validate_dataloader = validate_dataloader
 print("\n\n############################ INFORMATION ##################################")
 print(f"Training Clip model")
 print(f"Classification: {CLASSES} categories")
-print(f"Learning rate: {multimodal_model.configure_parameters["learning_rate"]}")
-print(f"Weight decay: {multimodal_model.configure_parameters["weight_decay"]}")
+print(f"Learning rate: {multimodal_model.configure_parameters['learning_rate']}")
+print(f"Weight decay: {multimodal_model.configure_parameters['weight_decay']}")
 print(f"Batch Size: {BATCH_SIZE}")
 print(f"Epochs: {EPOCHS}")
 print("###############################################################################\n\n")

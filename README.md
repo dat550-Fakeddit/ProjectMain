@@ -3,7 +3,7 @@
 This project are dependent on some python packages. Make sure they are installed. You can use `pip install -r ./requirements.txt`
 
 ### Dataset
-Follow the instrucions provided in the [README.md](data/README.md)
+Follow the instructions provided in the [README.md](data/README.md)
 
 ## Training a model - Non clip
 ### Configuration
@@ -34,4 +34,21 @@ Run the [Multimodal_TRAIN.py](Multimodal_TRAIN.py) script to start a training se
 
 Within each Dataloader definition, E.g at line 90, depending on your system, you may have to tweak the number of workers, persistent workers and/or pinning memory.
 
-At line 145, you may tweak parameters such as the learning rate.
+At line 145, you can tweak parameters such as the learning rate.
+
+## Training a model - Clip
+### Starting a Clip training session
+The configuration for clip is the same as for non-clip, but is dependent on fewer parameters.
+
+The parameters needed for Clip are:
+- Classes
+- Batch size
+- Epochs
+- Dataset
+- Wandb parameters
+
+In [Train_CLIP.py](Train_CLIP.py), you must specify a model name, which is used for saving the model, as well as for wandb logging.
+
+Within each Dataloader definition, E.g at line 85, depending on your system, you may have to tweak the number of workers, persistent workers and/or pinning memory.
+
+At line 125, you can tweak parameters such as the learning rate.
