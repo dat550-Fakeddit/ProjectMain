@@ -6,15 +6,12 @@ venv/
 
 
 CSV_FILES/
-3_way_dataset/
-6_way_dataset60k/
-data60k/
-Archive/
-data/
 lightning_logs/
-old_trained_models/
 wandb/
 
+data/*
+!data/README.md
+!data/data_set_generator.py
 
 LOGS_TESTING/
 LOGS_TRAINING/

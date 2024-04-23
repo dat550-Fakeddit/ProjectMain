@@ -1,45 +1,37 @@
-# slurm_train Old
-
-- sbatch conda_setup.sh
-- sbatch update_pip.sh
-
-- sbatch Multimodal_TRAIN.sh
-- sbatch Multimodal_TEST.sh
-
-- sbatch Train_CLIP.sh
-- sbatch Test_CLIP.sh
-
 # Multimodal Fakeddit project
-
-Names
-References
-General information
-
 ## Getting started
+This project are dependent on some python packages. Make sure they are installed. You can use `pip install -r ./requirements.txt`
 
-Requirements
-File structure
+### Dataset
+Follow the instrucions provided in the [README.md](data/README.md)
 
-## Dataset
-
-### Download dataset
-
-Download the images and dataset as specified in https://github.com/entitize/Fakeddit
-
-Use **OPTION 1** to download all images https://github.com/entitize/Fakeddit?tab=readme-ov-file#download-image-data
-
-Download the Multimodal only datasets https://github.com/entitize/Fakeddit?tab=readme-ov-file#download-text-and-metadata
-
-In the data folder, add the datasets into the "original_data" folder. Add the images to "original_data/images".
-
-### Generate dataset
-
-Run the "generate_dataset.py" to generate the dataset.
-
-## Train model
-
-Explain
-
+## Training a model - Non clip
 ### Config
+The config file, [modules/config.py](modules/config.py), contains the setup for several vision and text encoder models, including tokenizer and image transformation methods, as well as other configuration options.
 
-### Parameters
+At line 117, there are configuration options which must be set.
+- Dataset
+    - When generating a dataset, it makes a folder with that dataset. E.g `60000_2_way_label`.
+    - Set dataset to the name of this folder. E.g `DATASET = "60000_2_way_label"`
+- Classes
+    - What classification-category to use. E.g For 6-way-labels, use 6 classes
+- Batch size
+- Epochs
+- Vison_model
+    - What vision model to use. E.g to use ViT, set `VISION_MODEL = ViT_model`
+- Text_encoder_model
+    - What text encoder model to use. E.g to use bert base uncased, set `TEXT_ENCODER_MODEL = bert_base_uncased_model`
+- Tokenizer
+    - What tokenizer to use. It should be set to the tokenizer made for the chosen text encoder. E.g `TOKENIZER = bert_base_uncased_tokenizer`
+- Combine_method
+    - What combine function to use on the outputs of the models.
+    - Concatinate, Average, Maximum or Add
+- Wandb configuration
+    - Provide a project name, model name and api key for Wandb logging
+
+### Start training session
+Run the [Multimodal_TRAIN.py](Multimodal_TRAIN.py) script to start a training session. There are however some parameters in this file which may be tweaked.
+
+Within each Dataloader definition, E.g at line 90, depending on your system, you may have to tweak the number of workers, persistent workers and/or pinning memory.
+
+At line 145, you may tweak parameters such as the learning rate.

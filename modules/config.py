@@ -115,15 +115,10 @@ def get_model_name(text_model, vision_model, classes, combine_method):
 
 
 # Configurations for training
+DATASET = "300_2_way_label"
 CLASSES = 2
 BATCH_SIZE = 50
 EPOCHS = 30 # 30
-
-
-# TEXT_ENCODER_MODEL = bert_base_uncased_model #roberta_model, albert_model, bert_base_cased_model, bert_large_uncased_model
-# VISION_MODEL = efficientnet_v2_s
-# TOKENIZER = bert_base_uncased_tokenizer # roberta_tokenizer, albert_tokenizer, bert_base_cased_tokenizer, bert_large_uncased_tokenizer
-
 VISION_MODEL = efficientnet_v2_s
 TEXT_ENCODER_MODEL = bert_base_uncased_model
 TOKENIZER = bert_base_uncased_tokenizer
@@ -139,9 +134,10 @@ def combine_func(text_x, img_x, method):
     elif method == "add":
         return img_x + text_x
 
+COMBINE_METHOD = "concat"
 COMBINE_INFO = {
     "combine_func": combine_func,
-    "method": "concat"
+    "method": COMBINE_METHOD
 }
 
 #WANDB_PROJECT = "dat550_Text_Encoder"
