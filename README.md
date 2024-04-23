@@ -1,4 +1,4 @@
-# Multimodal Fakeddit project
+# Multimodal Fakeddit Project dat550
 ## Getting started
 This project are dependent on some python packages. Make sure they are installed. You can use `pip install -r ./requirements.txt`
 
@@ -6,7 +6,7 @@ This project are dependent on some python packages. Make sure they are installed
 Follow the instrucions provided in the [README.md](data/README.md)
 
 ## Training a model - Non clip
-### Config
+### Configuration
 The config file, [modules/config.py](modules/config.py), contains the setup for several vision and text encoder models, including tokenizer and image transformation methods, as well as other configuration options.
 
 At line 117, there are configuration options which must be set.

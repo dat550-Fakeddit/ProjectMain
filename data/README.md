@@ -5,7 +5,7 @@ Fakeddit: https://github.com/entitize/Fakeddit
 
 Follow the instructions below to set up your environment for generating datasets.
 
-Before getting started, make sure you have followed the getting started part of the README in the root directory.
+Make sure you have installed all requirements as stated in the main [README.md](../README.md)
 
 ### Download dataset
 
